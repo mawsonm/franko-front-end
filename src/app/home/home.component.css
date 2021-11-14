@@ -25,6 +25,10 @@
 .content h2 {
   font-weight: 400;
   font-style: italic;
+  margin-top: -430px;
+}
+.animation {
+  margin-top: -400px !important;
 }
 
 video {

@@ -3,6 +3,9 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HomeService } from '../services/home.service';
+import { AnimationItem } from 'lottie-web';
+import { AnimationOptions } from 'ngx-lottie';
+import { LottieModule } from 'ngx-lottie';
 
 @Component({
   selector: 'app-home',
@@ -32,6 +35,12 @@ export class HomeComponent implements OnInit {
 
   heroTextFade : boolean = false;
 
+  options: AnimationOptions = {
+    path: "../../assets/ae-animations/data.json"
+  }
+
+  ai: any;
+
 
   constructor(homeService : HomeService, private route: ActivatedRoute) { }
 
@@ -46,4 +55,8 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  animationCreated(animationItem: AnimationItem): void {
+    console.log(animationItem);
+    this.ai = animationItem;
+  }
 }

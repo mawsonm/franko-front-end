@@ -2,7 +2,8 @@
   <video [src]="vidUrl"  [autoplay]="'true'" [loop]="true" [muted]="muted"></video>
   <div class="overlay">
     <div [@heroText]="heroTextFade ? 'ready' : 'init'" class="content">
-      <h1>franko.</h1>
+      <!--<h1>franko.</h1>-->
+      <ng-lottie class="animation" width="1000px" height="1000px" containerClass="content" [options]="options" (animationCreated)="animationCreated($event)"></ng-lottie>
       <h2>I'm super depressed.</h2>
     </div>
   </div>

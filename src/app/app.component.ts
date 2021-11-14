@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
     trigger('navBar', [
       state('init', style({
         opacity: 0,
-        transform: 'translateY(-4px)'
+        transform: 'translateY(-7px)'
       })),
       state('ready', style({
         opacity: 1,

@@ -1,8 +1,7 @@
 <div (onscroll)="transformNav()">
 <div id="navbar" class="navbar top">
-  <h1 [@logoBar]="logo ? 'ready' : 'init'">
-    <span>franko.<i></i></span>
-  </h1>
+    <!--<span>franko.<i></i></span>-->
+    <img [@logoBar]="logo ? 'ready' : 'init'" src="../assets/images/logo.png" alt="">
   <nav>
     <ul>
       <li [@navBar]="home ? 'ready' : 'init'"><a href="#home">Home</a></li>
