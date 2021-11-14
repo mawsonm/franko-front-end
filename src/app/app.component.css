@@ -1,0 +1,44 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&family=Roboto:ital,wght@1,300&display=swap');
+* {
+  font-family: 'Open Sans', sans-serif;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  background: #333;
+  color: #fff;
+  opacity: 0.8;
+  position: fixed;
+  height: 70px;
+  top: 0 px;
+  width: 100%;
+  transition: 0.5s;
+}
+
+.navbar.top {
+  background: transparent;
+}
+
+.navbar ul {
+  display: flex;
+}
+.navbar li {
+  list-style: none;
+  padding: 0 30px;
+}
+ a {
+  text-decoration: none;
+  color: #fff;
+  transition: color 0.5s ease, transform 1s ease-in;
+}
+
+h1 {
+  font-family: 'Roboto', sans-serif;
+}
+li:hover , a:hover {
+  transform: scale(1.1);
+  color: cornflowerblue;
+}

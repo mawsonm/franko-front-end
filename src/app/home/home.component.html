@@ -1,0 +1,9 @@
+<div class="hero">
+  <video [src]="vidUrl"  [autoplay]="'true'" [loop]="true" [muted]="muted"></video>
+  <div class="overlay">
+    <div [@heroText]="heroTextFade ? 'ready' : 'init'" class="content">
+      <h1>franko.</h1>
+      <h2>I'm super depressed.</h2>
+    </div>
+  </div>
+</div>
