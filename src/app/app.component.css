@@ -44,9 +44,24 @@ li:hover , a:hover {
 }
 
 img {
-  height: 400px;
-  width: 600px;
-  margin-left: -160px;
+  height: 100px;
+  width: 150px;
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+@media(max-width: 850px){
+  .navbar {
+    flex-direction: column;
+    height: 100px;
+    justify-content: center;
+  }
+  .navbar li {
+    padding: 5px 20px;
+  }
+  img {
+    margin-top: 25px;
+    max-width: 100%;
+    margin-bottom: 0px;
+  }
 }
