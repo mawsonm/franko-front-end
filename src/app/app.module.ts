@@ -9,7 +9,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LottieModule } from 'ngx-lottie';
-import { MatButtonModule } from '@angular/material/button'
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card'
+import { HttpClientModule } from '@angular/common/http';
 import player from 'lottie-web';
 
 const routes : Routes = [
@@ -28,7 +30,9 @@ export function playerFactory(){
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MatButtonModule,
+    MatCardModule,
      FormsModule,
      ReactiveFormsModule,
      RouterModule.forRoot(routes),

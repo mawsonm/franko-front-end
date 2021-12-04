@@ -30,7 +30,8 @@ import { LottieModule } from 'ngx-lottie';
 })
 export class HomeComponent implements OnInit {
 
-  vidUrl : string = '../../assets/videos/slow-steak.mp4';
+  heroUrl : string = '../../assets/videos/slow-steak.mp4';
+  compilationUrl : string = "../../assets/videos/compilation.mp4";
   muted: boolean = true;
 
   heroTextFade : boolean = false;
@@ -42,9 +43,20 @@ export class HomeComponent implements OnInit {
   ai: any;
 
 
-  constructor(homeService : HomeService, private route: ActivatedRoute) { }
+
+  galleryUrl : string = "../../assets/videos/suky.gif";
+
+  instaInfo = {} as InstaInfo;
+
+
+  constructor(private homeService: HomeService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.homeService.getInstagramInfo().subscribe(data => {
+      this.instaInfo.bio = data.biography;
+      this.instaInfo.pic_url = "../../assets/images/insta_profile.jpg";
+      this.instaInfo.username = data.username;
+    });
     setTimeout(() => this.heroTextFade = !this.heroTextFade, 1200);
   }
 
@@ -59,4 +71,10 @@ export class HomeComponent implements OnInit {
     console.log(animationItem);
     this.ai = animationItem;
   }
+}
+
+interface InstaInfo {
+  pic_url : string;
+  bio: string;
+  username: string;
 }

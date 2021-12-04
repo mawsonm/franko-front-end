@@ -1,28 +1,90 @@
 <div class="hero">
-  <video [src]="vidUrl"  [autoplay]="'true'" [loop]="true" [muted]="muted"></video>
+  <video
+    [src]="heroUrl"
+    [autoplay]="'true'"
+    [loop]="true"
+    [muted]="muted"
+  ></video>
   <div class="overlay">
     <div [@heroText]="heroTextFade ? 'ready' : 'init'" class="content">
       <!--<h1>franko.</h1>-->
-      <ng-lottie class="animation" width="1000px" height="1000px" containerClass="content" [options]="options" (animationCreated)="animationCreated($event)"></ng-lottie>
+      <ng-lottie
+        class="animation"
+        width="1000px"
+        height="1000px"
+        containerClass="content"
+        [options]="options"
+        (animationCreated)="animationCreated($event)"
+      ></ng-lottie>
       <h2>I'm super depressed.</h2>
     </div>
   </div>
 </div>
-<div class="flex-columns">
+<div id="about" class="flex-columns">
   <div class="row">
-  <div class="column">
-    <img id="about-pic" src="../../assets/images/frank_placeholder.jpg" alt="">
-  </div>
-  <div class="column about">
-    <div class="row">
-      <img src="../../assets/images/cooking.png" alt="">
-      <img src="../../assets/images/helmet.png" alt="">
-      <img src="../../assets/images/guitar.png" alt="">
+    <div class="column">
+      <img
+        id="about-pic"
+        src="../../assets/images/frank_placeholder.jpg"
+        alt=""
+      />
     </div>
-    <h4>chef / construction worker / musician</h4>
-    <h1>hi i'm frank</h1>
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugit atque reiciendis adipisci obcaecati quos aperiam odit dolor nulla eligendi quaerat.</p>
-    <button id="about-button" mat-button>Learn more</button>
+    <div class="column about">
+      <div class="row">
+        <img src="../../assets/images/cooking.png" alt="" />
+        <img src="../../assets/images/helmet.png" alt="" />
+        <img src="../../assets/images/guitar.png" alt="" />
+      </div>
+      <h4>chef / construction worker / musician</h4>
+      <h1>hi i'm frank</h1>
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugit atque
+        reiciendis adipisci obcaecati quos aperiam odit dolor nulla eligendi
+        quaerat.
+      </p>
+      <button id="about-button" mat-button>Learn more</button>
+    </div>
   </div>
 </div>
-</div>
+  <div id="gallery" class="grid-wrapper">
+    <!--<div class="left-side">
+      <div class="container">
+        <div class="text-box">
+          <h1>check out my show on insta!</h1>
+          <h4>i'm your host - frankie diamond!</h4>
+          <p>See the gallery for my all videos. I show you step by step how to cook <i>fantasic</i> Italian food!</p>
+          <button mat-raised-button color="primary" class="button">Watch</button>
+        </div>
+        <div class="image-box">
+          <img style="height: 300px; width: 200px;" src="../../assets/images/lobster.jpg" alt="">
+        </div>
+        <div class="image-box card">
+          <mat-card>
+          <mat-card-header>
+            <div mat-card-avatar class="header-image"></div>
+            <mat-card-title>{{instaInfo.username}}</mat-card-title>
+            <mat-card-subtitle>{{instaInfo.bio}}</mat-card-subtitle>
+          </mat-card-header>
+          <img mat-card-image style="height: 300px; width: 200px;" src="../../assets/images/insta_profile.jpg">
+        </mat-card>
+        </div>
+          <img style="height: 300px; width: 200px;" src="../../assets/images/lobster.jpg" alt="">
+      </div>
+    </div>-->
+    <div class="outer-container">
+      <div class="row-1">
+        <div class="text-box">
+          <h1>check out my show on insta!</h1>
+          <h4>i'm your host - frankie diamond!</h4>
+          <p>See the gallery for my all videos. I show you step by step how to cook <i>fantasic</i> Italian food!</p>
+          <button mat-raised-button color="primary" class="button">Watch</button>
+        </div>
+      </div>
+      <div class="row-2">
+        <div class="lobster"><img style="height: 300px; width: 200px;" src="../../assets/images/lobster.jpg" alt=""></div>
+        <div>
+          <img style="height: 250px; width: 250px;" src="../../assets/images/frank_jj.jpg" alt="">
+        </div>
+      </div>
+    </div>
+  </div>

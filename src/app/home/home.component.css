@@ -106,7 +106,102 @@ video {
 #about-button:hover {
   transform: scale(1.05);
 }
+.headers {
+  text-align: center;
+}
 
+.flex-center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 800px;
+}
+
+.card {
+  height: 400px;
+  width: 200px;
+}
+
+.flex-center video {
+  height: 400px;
+}
+.grid-wrapper {
+  background-color: #0284d0;
+}
+.left-side {
+  grid-column: 1 / 2;
+  grid-row: 1 / 3 ;
+}
+
+.header-image {
+  background: url("../../assets/images/insta_profile.jpg");
+  background-size: cover;
+}
+
+.text-box {
+  border: 2px solid #0474b4;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 50%;
+  padding: 25px;
+}
+
+.text-box h1, .text-box h4, .text-box p {
+  color: #fff;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.text-box h1 {
+  font-weight: 600;
+  font-size: 40px;
+}
+
+.right-side {
+  grid-column: 2 / 3;
+  grid-row: 1 / 3;
+  background: url("../../assets/videos/suky.gif") no-repeat;
+}
+
+.button {
+  border-radius: 25px;
+  color: #fff;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.image-box {
+  margin-left: 25%;
+  margin-top: -40px;
+}
+
+.image-box img {
+  border-radius: 10px;
+  border: 2px solid #0474b4;
+}
+
+.row-1 {
+  height: 300px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.row-2 {
+  height: 350px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.row-2 .lobster > img {
+  border-radius: 10px;
+  border: 2px solid #0474b4;
+}
 
 
 @media(max-width: 768px){
