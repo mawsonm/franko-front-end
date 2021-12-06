@@ -12,6 +12,7 @@ import { LottieModule } from 'ngx-lottie';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card'
 import { HttpClientModule } from '@angular/common/http';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import player from 'lottie-web';
 
 const routes : Routes = [
@@ -34,6 +35,7 @@ export function playerFactory(){
     MatButtonModule,
     MatCardModule,
      FormsModule,
+     FontAwesomeModule,
      ReactiveFormsModule,
      RouterModule.forRoot(routes),
      LottieModule.forRoot({player: playerFactory})

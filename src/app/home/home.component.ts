@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { HomeService } from '../services/home.service';
 import { AnimationItem } from 'lottie-web';
 import { AnimationOptions } from 'ngx-lottie';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { LottieModule } from 'ngx-lottie';
 
 @Component({
@@ -30,6 +31,8 @@ import { LottieModule } from 'ngx-lottie';
 })
 export class HomeComponent implements OnInit {
 
+  faArrow = faArrowLeft;
+
   heroUrl : string = '../../assets/videos/slow-steak.mp4';
   compilationUrl : string = "../../assets/videos/compilation.mp4";
   muted: boolean = true;
@@ -52,11 +55,12 @@ export class HomeComponent implements OnInit {
   constructor(private homeService: HomeService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.homeService.getInstagramInfo().subscribe(data => {
-      this.instaInfo.bio = data.biography;
+    /*this.homeService.getInstagramInfo().subscribe(it => {
+      this.instaInfo.bio = it.data.biography;
+      console.log(this.instaInfo.bio);
       this.instaInfo.pic_url = "../../assets/images/insta_profile.jpg";
-      this.instaInfo.username = data.username;
-    });
+      this.instaInfo.username = "_frankie_diamond";
+    });*/
     setTimeout(() => this.heroTextFade = !this.heroTextFade, 1200);
   }
 
