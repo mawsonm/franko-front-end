@@ -1,3 +1,4 @@
+import { MovinWords } from 'movinwords/dist/movinwords.js';
 import { AccountComponent } from './account/account.component';
 import { RouterModule, Routes } from '@angular/router';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';

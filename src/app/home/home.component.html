@@ -22,14 +22,14 @@
 </div>
 <div id="about" class="flex-columns">
   <div class="row">
-    <div class="column">
+    <div #about class="column from-left">
       <img
         id="about-pic"
         src="../../assets/images/frank_placeholder.jpg"
         alt=""
       />
     </div>
-    <div class="column about">
+    <div #about class="column about from-right">
       <div class="row">
         <img src="../../assets/images/cooking.png" alt="" />
         <img src="../../assets/images/helmet.png" alt="" />
@@ -72,7 +72,7 @@
       </div>
     </div>-->
   <div class="intro-quote">
-    <h2>Welcome back to another<br> episode of <i>I'm Super Depressed!</i><br> I'm your host <i>Frankie Diamond</i> <br>and today we are making...</h2>
+    <h2 class="special" style="text-shadow: black 1px 0 10px;" #quote>Welcome back to another<br> episode of <i>I'm Super Depressed!</i><br> I'm your host <i>Frankie Diamond</i> <br>and today we are making...</h2>
   </div>
   <div class="box-header">
     <div class="text-box">
@@ -90,7 +90,7 @@
       </div>-->
   <div class="insta-preview">
     <div class="user-info">
-      <div class="insta-preview-user">
+      <div #quote class="insta-preview-user special">
         <img
           class="avatar"
           src="../../assets/images/insta_profile.jpg"
@@ -98,16 +98,16 @@
         />
         <h3 style="padding-left: 5px">_frankie_diamond</h3>
       </div>
-      <h4>💎🇮🇹 <br>Co-Head Chef for I’m Super Depressed</h4>
+      <h4 #quote class="special">💎🇮🇹 <br>Co-Head Chef for I’m Super Depressed</h4>
     </div>
-    <img class="gif" src="../../assets/images/compilation-gallery.gif" alt="" />
+    <img #gallery class="gif gallery" src="../../assets/images/compilation-gallery.gif" alt="" />
   </div>
   <div class="image-flex">
-    <img style="height: 300px; width: 200px;" src="../../assets/images/lobster.jpg" alt="">
+    <img #gallery class="gallery" style="height: 300px; width: 200px;" src="../../assets/images/lobster.jpg" alt="">
   </div>
-  <div class="check-show">
-    <h2>check out my best moments!</h2>
-    <div style="margin-top: 25px;">
+  <div #gallery class="check-show gallery">
+    <h3>check out my best moments!</h3>
+    <div #gallery class="arrow" style="margin-top: 25px;">
       <fa-icon [icon]="faArrow"></fa-icon>
     </div>
   </div>

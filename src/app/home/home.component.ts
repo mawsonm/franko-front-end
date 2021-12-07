@@ -1,12 +1,14 @@
+import { IntersectionObserverService } from './../services/intersection-observer.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChildren, AfterViewInit, ElementRef, ViewChild, QueryList } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HomeService } from '../services/home.service';
 import { AnimationItem } from 'lottie-web';
 import { AnimationOptions } from 'ngx-lottie';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { LottieModule } from 'ngx-lottie';
+import { movinWords } from 'movinwords';
 
 @Component({
   selector: 'app-home',
@@ -29,7 +31,7 @@ import { LottieModule } from 'ngx-lottie';
   styleUrls: ['./home.component.css'],
 
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, AfterViewInit {
 
   faArrow = faArrowLeft;
 
@@ -52,7 +54,10 @@ export class HomeComponent implements OnInit {
   instaInfo = {} as InstaInfo;
 
 
-  constructor(private homeService: HomeService, private route: ActivatedRoute) { }
+  @ViewChildren('gallery') gallery : QueryList<ElementRef>;
+  @ViewChildren('about') about : QueryList<ElementRef>;
+  @ViewChildren('quote') quote : QueryList<ElementRef>;
+  constructor(private homeService: HomeService, private intersectionService : IntersectionObserverService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     /*this.homeService.getInstagramInfo().subscribe(it => {
@@ -64,6 +69,15 @@ export class HomeComponent implements OnInit {
     setTimeout(() => this.heroTextFade = !this.heroTextFade, 1200);
   }
 
+  ngAfterViewInit(){
+    console.log(this.gallery.toArray());
+    this.intersectionService.onScrollContent(this.gallery.toArray());
+    this.intersectionService.onScrollAbout(this.about.toArray());
+    this.intersectionService.onScrollQuote(this.quote.toArray());
+    /*this.gallery.forEach(item => {
+      this.intersectionService.onScrollContent(item);
+    });*/
+  }
 
   transformNav(event : any) {
     if(window.pageYOffset > 100 ){

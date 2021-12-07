@@ -25,6 +25,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "lottie-web": "^5.8.1",
+    "movinwords": "^1.0.6",
     "ngx-lottie": "^7.0.4",
     "rxjs": "~6.6.0",
     "tslib": "^2.2.0",
