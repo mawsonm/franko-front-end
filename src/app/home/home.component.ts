@@ -16,11 +16,9 @@ import { movinWords } from 'movinwords';
     trigger('heroText', [
       state('init', style({
         opacity: 0,
-        //transform: 'translateX(100%)'
       })),
       state('ready', style({
-        opacity: 1,
-        //transform: 'translateX(0%)'
+        opacity: 1
       })),
       transition('init => ready', [
         animate('1s')
@@ -35,28 +33,25 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   faArrow = faArrowLeft;
 
-  heroUrl : string = '../../assets/videos/slow-steak.mp4';
-  compilationUrl : string = "../../assets/videos/compilation.mp4";
-  muted: boolean = true;
+  // hero stuff
 
+  heroUrl : string = '../../assets/videos/slow-steak.mp4';
+  muted: boolean = true;
   heroTextFade : boolean = false;
+
+  // ae animation
 
   options: AnimationOptions = {
     path: "../../assets/ae-animations/data.json"
   }
-
   ai: any;
 
 
 
-  galleryUrl : string = "../../assets/videos/suky.gif";
-
-  instaInfo = {} as InstaInfo;
-
-
-  @ViewChildren('gallery') gallery : QueryList<ElementRef>;
+  @ViewChildren('bottomGallery') bottomGallery : QueryList<ElementRef>;
   @ViewChildren('about') about : QueryList<ElementRef>;
-  @ViewChildren('quote') quote : QueryList<ElementRef>;
+  @ViewChildren('topGallery') topGallery : QueryList<ElementRef>;
+  @ViewChild('forNav') forNav : ElementRef;
   constructor(private homeService: HomeService, private intersectionService : IntersectionObserverService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -70,29 +65,12 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(){
-    console.log(this.gallery.toArray());
-    this.intersectionService.onScrollContent(this.gallery.toArray());
+    this.intersectionService.onScrollBottomGallery(this.bottomGallery.toArray());
     this.intersectionService.onScrollAbout(this.about.toArray());
-    this.intersectionService.onScrollQuote(this.quote.toArray());
-    /*this.gallery.forEach(item => {
-      this.intersectionService.onScrollContent(item);
-    });*/
-  }
-
-  transformNav(event : any) {
-    if(window.pageYOffset > 100 ){
-
-    }
+    this.intersectionService.onScrollTopGallery(this.topGallery.toArray());
   }
 
   animationCreated(animationItem: AnimationItem): void {
-    console.log(animationItem);
     this.ai = animationItem;
   }
-}
-
-interface InstaInfo {
-  pic_url : string;
-  bio: string;
-  username: string;
 }

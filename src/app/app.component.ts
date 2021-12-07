@@ -1,5 +1,6 @@
+import { IntersectionObserverService } from './services/intersection-observer.service';
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -34,7 +35,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit, AfterViewInit{
   title = 'diamond';
 
   home: boolean = false;
@@ -44,8 +45,13 @@ export class AppComponent implements OnInit{
   account : boolean = false;
   logo: boolean = false;
 
+  constructor(private intersectionObserverService : IntersectionObserverService){}
+
   ngOnInit(){
     this.animateNav();
+  }
+
+  ngAfterViewInit(){
   }
 
   animateNav(){

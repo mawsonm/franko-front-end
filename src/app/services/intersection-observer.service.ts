@@ -9,10 +9,11 @@ export class IntersectionObserverService {
   galleryObserver : IntersectionObserver;
   aboutObserver : IntersectionObserver;
   quoteObserver : IntersectionObserver;
+  navObserver : IntersectionObserver;
 
   constructor() { }
 
-  onScrollContent(elements: ElementRef[]){
+  onScrollBottomGallery(elements: ElementRef[]){
     const options = {
       root: null,
       threshhold: 0
@@ -35,7 +36,7 @@ export class IntersectionObserverService {
     return this.galleryObserver;
   }
 
-  onScrollQuote(elements: ElementRef[]){
+  onScrollTopGallery(elements: ElementRef[]){
     const options = {
       root: null,
       threshhold: 1
@@ -77,4 +78,5 @@ export class IntersectionObserverService {
       this.aboutObserver.observe(element.nativeElement);
     })
   }
+
 }
