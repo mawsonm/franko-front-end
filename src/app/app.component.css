@@ -1,8 +1,8 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&family=Roboto:ital,wght@1,300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&family=Roboto:ital,wght@1,300&display=swap");
 * {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -15,7 +15,7 @@
   height: 80px;
   top: 0 px;
   width: 100%;
-  transition: 0.5s;
+  transition: background 0.5s ease-in;
   z-index: 10;
 }
 
@@ -30,16 +30,17 @@
   list-style: none;
   padding: 15px 30px;
 }
- a {
+a {
   text-decoration: none;
   color: #fff;
   transition: color 0.5s ease, transform 1s ease-in;
 }
 
 h1 {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
-li:hover , a:hover {
+li:hover,
+a:hover {
   transform: scale(1.1);
   color: cornflowerblue;
 }
@@ -51,7 +52,11 @@ img {
   margin-bottom: 10px;
 }
 
-@media(max-width: 850px){
+.wrapper {
+  overflow-x: hidden;
+}
+
+@media (max-width: 850px) {
   .navbar {
     flex-direction: column;
     height: 100px;

@@ -1,6 +1,7 @@
 import { IntersectionObserverService } from './services/intersection-observer.service';
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { Component, ElementRef, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, AfterViewInit, HostListener } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -49,6 +50,17 @@ export class AppComponent implements OnInit, AfterViewInit{
 
   ngOnInit(){
     this.animateNav();
+  }
+
+  onWindowScroll($event){
+    let element = document.querySelector('.navbar') as HTMLElement;
+    console.log(window.pageYOffset);
+    if(window.pageYOffset > 900){
+      element.classList.remove('top');
+    }
+    else {
+      element.classList.add('top');
+    }
   }
 
   ngAfterViewInit(){

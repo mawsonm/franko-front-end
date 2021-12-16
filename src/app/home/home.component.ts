@@ -1,7 +1,7 @@
 import { IntersectionObserverService } from './../services/intersection-observer.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { Component, OnInit, ViewChildren, AfterViewInit, ElementRef, ViewChild, QueryList } from '@angular/core';
+import { Component, OnInit, ViewChildren, AfterViewInit, ElementRef, ViewChild, QueryList, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HomeService } from '../services/home.service';
 import { AnimationItem } from 'lottie-web';
