@@ -14,6 +14,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card'
 import { HttpClientModule } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { MatToolbarModule} from '@angular/material/toolbar';
 import player from 'lottie-web';
 
 const routes : Routes = [
@@ -35,6 +38,8 @@ export function playerFactory(){
     HttpClientModule,
     MatButtonModule,
     MatCardModule,
+    MatSidenavModule,
+    MatToolbarModule,
      FormsModule,
      FontAwesomeModule,
      ReactiveFormsModule,

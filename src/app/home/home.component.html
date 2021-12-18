@@ -1,4 +1,4 @@
-<div class="hero">
+<div id="home" class="hero">
   <video
     [src]="heroUrl"
     [autoplay]="'true'"
@@ -17,6 +17,100 @@
       ></ng-lottie>
       <h2>I'm super depressed.</h2>
     </div>
+  </div>
+</div>
+<div id="gallery" class="grid-wrapper">
+  <div class="intro-quote">
+    <h2 class="special" style="text-shadow: black 1px 0 10px" #topGallery>
+      Welcome back to another<br />
+      episode of <i>I'm Super Depressed!</i><br />
+      I'm your host <i>Frankie Diamond</i> <br />and today we are making...
+    </h2>
+  </div>
+  <div class="box-header">
+    <div class="text-box">
+      <h1>check out my show on insta!</h1>
+      <h4>i'm your host - frankie diamond!</h4>
+      <p>
+        See the gallery for my all videos. I show you step by step how to cook
+        <i>fantasic</i> Italian food!
+      </p>
+      <button mat-raised-button color="primary" class="button">Watch</button>
+    </div>
+  </div>
+  <div class="insta-preview">
+    <div class="user-info">
+      <div #topGallery class="insta-preview-user special">
+        <img
+          class="avatar"
+          src="../../assets/images/insta_profile.jpg"
+          alt=""
+        />
+        <h3 style="padding-left: 5px">_frankie_diamond</h3>
+      </div>
+      <h4 #topGallery style="padding-right: 7px" class="special">
+        💎🇮🇹 <br />Co-Head Chef for I’m Super Depressed
+      </h4>
+    </div>
+    <img
+      #bottomGallery
+      class="gif gallery"
+      src="../../assets/images/compilation-gallery.gif"
+      alt=""
+    />
+  </div>
+  <div class="image-flex">
+    <img
+      #bottomGallery
+      class="gallery"
+      style="height: 300px; width: 200px"
+      src="../../assets/images/lobster.jpg"
+      alt=""
+    />
+  </div>
+  <div #bottomGallery class="check-show gallery">
+    <h3>check out my best moments!</h3>
+    <div #bottomGallery class="arrow" style="margin-top: 25px">
+      <fa-icon [icon]="faArrow"></fa-icon>
+    </div>
+  </div>
+</div>
+<div class="shop">
+  <div class="shop-column">
+    <h1 class="padding-shop">buy some merch!</h1>
+    <div class="carousel-grid">
+      <div class="info-color-flex left">
+        <div class="shop-item">
+          <img src="../../assets/images/frank_placeholder.jpg" alt="" />
+          <div class="top-row-item">
+            <h3 style="padding-left: 10px">Super Depressed Hoodie</h3>
+            <div class="colors">
+              <div class="color-circle" style="background-color: purple"></div>
+              <div class="color-circle" style="background-color: orange"></div>
+            </div>
+          </div>
+          <p style="padding-left: 10px">$30</p>
+          <p style="padding-left: 10px">Size: S/M/L</p>
+        </div>
+      </div>
+      <div class="info-color-flex right">
+        <div class="shop-item">
+          <img src="../../assets/images/frank_placeholder.jpg" alt="" />
+          <div class="top-row-item">
+            <h3 style="padding-left: 10px">Super Depressed Hoodie</h3>
+            <div class="colors">
+              <div class="color-circle" style="background-color: purple"></div>
+              <div class="color-circle" style="background-color: orange"></div>
+            </div>
+          </div>
+          <p style="padding-left: 10px">$30</p>
+          <p style="padding-left: 10px">Size: S/M/L</p>
+        </div>
+      </div>
+    </div>
+    <button mat-raised-button color="primary" class="button button-shop">
+      Shop
+    </button>
   </div>
 </div>
 <div id="about" class="flex-columns">
@@ -42,45 +136,6 @@
         quaerat.
       </p>
       <button mat-raised-button class="button">Read</button>
-    </div>
-  </div>
-</div>
-<div id="gallery" class="grid-wrapper">
-  <div class="intro-quote">
-    <h2 class="special" style="text-shadow: black 1px 0 10px;" #topGallery>Welcome back to another<br> episode of <i>I'm Super Depressed!</i><br> I'm your host <i>Frankie Diamond</i> <br>and today we are making...</h2>
-  </div>
-  <div class="box-header">
-    <div class="text-box">
-      <h1>check out my show on insta!</h1>
-      <h4>i'm your host - frankie diamond!</h4>
-      <p>
-        See the gallery for my all videos. I show you step by step how to cook
-        <i>fantasic</i> Italian food!
-      </p>
-      <button mat-raised-button color="primary" class="button">Watch</button>
-    </div>
-  </div>
-  <div class="insta-preview">
-    <div class="user-info">
-      <div #topGallery class="insta-preview-user special">
-        <img
-          class="avatar"
-          src="../../assets/images/insta_profile.jpg"
-          alt=""
-        />
-        <h3 style="padding-left: 5px">_frankie_diamond</h3>
-      </div>
-      <h4 #topGallery style="padding-right: 7px;" class="special">💎🇮🇹 <br>Co-Head Chef for I’m Super Depressed</h4>
-    </div>
-    <img #bottomGallery class="gif gallery" src="../../assets/images/compilation-gallery.gif" alt="" />
-  </div>
-  <div class="image-flex">
-    <img #bottomGallery class="gallery" style="height: 300px; width: 200px;" src="../../assets/images/lobster.jpg" alt="">
-  </div>
-  <div #bottomGallery class="check-show gallery">
-    <h3>check out my best moments!</h3>
-    <div #bottomGallery class="arrow" style="margin-top: 25px;">
-      <fa-icon [icon]="faArrow"></fa-icon>
     </div>
   </div>
 </div>

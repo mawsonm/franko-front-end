@@ -15,6 +15,7 @@
     "@angular/common": "~12.1.0-",
     "@angular/compiler": "~12.1.0-",
     "@angular/core": "~12.1.0-",
+    "@angular/flex-layout": "^13.0.0-beta.36",
     "@angular/forms": "~12.1.0-",
     "@angular/material": "^12.2.12",
     "@angular/platform-browser": "~12.1.0-",
@@ -28,6 +29,7 @@
     "movinwords": "^1.0.6",
     "ngx-lottie": "^7.0.4",
     "rxjs": "~6.6.0",
+    "save": "^2.4.0",
     "tslib": "^2.2.0",
     "zone.js": "~0.11.4"
   },
