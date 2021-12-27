@@ -6,7 +6,6 @@ import { ActivatedRoute } from '@angular/router';
 import { HomeService } from '../services/home.service';
 import { AnimationItem } from 'lottie-web';
 import { AnimationOptions } from 'ngx-lottie';
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { LottieModule } from 'ngx-lottie';
 import { movinWords } from 'movinwords';
 
@@ -31,7 +30,6 @@ import { movinWords } from 'movinwords';
 })
 export class HomeComponent implements OnInit, AfterViewInit {
 
-  faArrow = faArrowLeft;
 
   // hero stuff
 
@@ -46,12 +44,18 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
   ai: any;
 
+  smoothScrollMap = new Map();
+
 
 
   @ViewChildren('bottomGallery') bottomGallery : QueryList<ElementRef>;
   @ViewChildren('about') about : QueryList<ElementRef>;
   @ViewChildren('topGallery') topGallery : QueryList<ElementRef>;
   @ViewChild('forNav') forNav : ElementRef;
+  @ViewChild('homeSection') homeSection : ElementRef;
+  @ViewChild('aboutSection') aboutSection : ElementRef;
+  @ViewChild('gallerySection') gallerySection : ElementRef;
+  @ViewChild('shopSection') shopSection : ElementRef;
   constructor(private homeService: HomeService, private intersectionService : IntersectionObserverService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -68,6 +72,15 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.intersectionService.onScrollBottomGallery(this.bottomGallery.toArray());
     this.intersectionService.onScrollAbout(this.about.toArray());
     this.intersectionService.onScrollTopGallery(this.topGallery.toArray());
+    this.smoothScrollMap.set('home', this.homeSection);
+    this.smoothScrollMap.set('about', this.aboutSection);
+    this.smoothScrollMap.set('gallery', this.gallerySection);
+    this.smoothScrollMap.set('shop', this.shopSection);
+    this.homeService.navSubject.subscribe(element => {
+      console.log("in home", element);
+      let scrollTo = this.smoothScrollMap.get(element);
+      scrollTo.nativeElement.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+    });
   }
 
   animationCreated(animationItem: AnimationItem): void {

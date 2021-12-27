@@ -2,6 +2,8 @@ import { IntersectionObserverService } from './services/intersection-observer.se
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component, ElementRef, OnInit, ViewChild, AfterViewInit, HostListener } from '@angular/core';
 import { Subject } from 'rxjs';
+import { ViewportScroller } from '@angular/common';
+import { HomeService } from './services/home.service';
 
 @Component({
   selector: 'app-root',
@@ -46,8 +48,12 @@ export class AppComponent implements OnInit, AfterViewInit{
   account : boolean = false;
   logo: boolean = false;
 
-  constructor(private intersectionObserverService : IntersectionObserverService){}
+  constructor(private intersectionObserverService : IntersectionObserverService, private homeService: HomeService){}
 
+  onClickScroll(elementId: string){
+    this.homeService.navSubject.next(elementId);
+    console.log("in app component", elementId);
+  }
   ngOnInit(){
     this.animateNav();
   }

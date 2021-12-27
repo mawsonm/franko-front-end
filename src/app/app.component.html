@@ -8,12 +8,18 @@
     />
     <nav>
       <ul>
-        <li [@navBar]="home ? 'ready' : 'init'"><a href="#home">Home</a></li>
-        <li [@navBar]="about ? 'ready' : 'init'"><a href="#about">About</a></li>
-        <li [@navBar]="gallery ? 'ready' : 'init'">
-          <a href="#gallery">Gallery</a>
+        <li [@navBar]="home ? 'ready' : 'init'">
+          <a (click)="onClickScroll('home')">Home</a>
         </li>
-        <li [@navBar]="shop ? 'ready' : 'init'"><a href="#shop">Shop</a></li>
+        <li [@navBar]="about ? 'ready' : 'init'">
+          <a (click)="onClickScroll('about')">About</a>
+        </li>
+        <li [@navBar]="gallery ? 'ready' : 'init'">
+          <a (click)="onClickScroll('gallery')">Gallery</a>
+        </li>
+        <li [@navBar]="shop ? 'ready' : 'init'">
+          <a (click)="onClickScroll('shop')">Shop</a>
+        </li>
         <li [@navBar]="account ? 'ready' : 'init'">
           <a href="#account">Account</a>
         </li>
@@ -26,4 +32,19 @@
     </nav>
   </div>
   <router-outlet></router-outlet>
+  <div class="footer">
+    <div class="footer-flex">
+      <img src="../assets/images/logo1.png" alt="" />
+    </div>
+    <div class="footer-flex" style="width: 11%">
+      <i class="fab fa-instagram fa-2x" style="color: white"></i>
+      <i class="fab fa-tiktok fa-2x" style="color: white"></i>
+      <i class="fab fa-twitch fa-2x" style="color: white"></i>
+    </div>
+    <div class="footer-flex" style="width: 35%">
+      <p>Privacy Policy</p>
+      <p>Terms & Conditions</p>
+      <p>Shipping & Returns</p>
+    </div>
+  </div>
 </div>

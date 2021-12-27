@@ -7,7 +7,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class HomeService {
 
-  navSubject = new BehaviorSubject('transform');
+  navSubject = new BehaviorSubject('home');
 
   constructor(private http : HttpClient) { }
 

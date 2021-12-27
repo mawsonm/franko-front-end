@@ -1,4 +1,4 @@
-<div id="home" class="hero">
+<div id="home" #homeSection class="hero">
   <video
     [src]="heroUrl"
     [autoplay]="'true'"
@@ -19,7 +19,7 @@
     </div>
   </div>
 </div>
-<div id="gallery" class="grid-wrapper">
+<div id="gallery" #gallerySection class="grid-wrapper">
   <div class="intro-quote">
     <h2 class="special" style="text-shadow: black 1px 0 10px" #topGallery>
       Welcome back to another<br />
@@ -70,12 +70,10 @@
   </div>
   <div #bottomGallery class="check-show gallery">
     <h3>check out my best moments!</h3>
-    <div #bottomGallery class="arrow" style="margin-top: 25px">
-      <fa-icon [icon]="faArrow"></fa-icon>
-    </div>
+    <div #bottomGallery class="arrow" style="margin-top: 25px"></div>
   </div>
 </div>
-<div class="shop">
+<div class="shop" #shopSection id="shop">
   <div class="shop-column">
     <h1 class="padding-shop">buy some merch!</h1>
     <div class="carousel-grid">
@@ -113,7 +111,7 @@
     </button>
   </div>
 </div>
-<div id="about" class="flex-columns">
+<div id="about" #aboutSection class="flex-columns">
   <div class="row">
     <div #about class="column from-left">
       <img

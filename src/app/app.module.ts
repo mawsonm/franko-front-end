@@ -13,7 +13,6 @@ import { LottieModule } from 'ngx-lottie';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card'
 import { HttpClientModule } from '@angular/common/http';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { MatToolbarModule} from '@angular/material/toolbar';
@@ -41,9 +40,11 @@ export function playerFactory(){
     MatSidenavModule,
     MatToolbarModule,
      FormsModule,
-     FontAwesomeModule,
      ReactiveFormsModule,
-     RouterModule.forRoot(routes),
+     RouterModule.forRoot(routes, {
+       useHash: true,
+       anchorScrolling: 'enabled'
+     }),
      LottieModule.forRoot({player: playerFactory})
 
   ],
