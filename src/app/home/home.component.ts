@@ -72,6 +72,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.intersectionService.onScrollBottomGallery(this.bottomGallery.toArray());
     this.intersectionService.onScrollAbout(this.about.toArray());
     this.intersectionService.onScrollTopGallery(this.topGallery.toArray());
+    this.intersectionService.onScrollNav(this.homeSection);
     this.smoothScrollMap.set('home', this.homeSection);
     this.smoothScrollMap.set('about', this.aboutSection);
     this.smoothScrollMap.set('gallery', this.gallerySection);

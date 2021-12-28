@@ -1,5 +1,11 @@
 <div class="wrapper">
-  <div id="navbar" class="navbar top" (scroll)="onWindowScroll($event)">
+  <div
+    id="navbar"
+    #nav
+    [ngClass]="{ top: addOrRemoveNav() }"
+    class="navbar"
+    (scroll)="onWindowScroll($event)"
+  >
     <!--<span>franko.<i></i></span>-->
     <img
       [@logoBar]="logo ? 'ready' : 'init'"

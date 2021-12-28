@@ -1,3 +1,4 @@
+import { Subject } from 'rxjs';
 import { ElementSchemaRegistry } from '@angular/compiler';
 import { ElementRef, Injectable, QueryList } from '@angular/core';
 
@@ -10,6 +11,9 @@ export class IntersectionObserverService {
   aboutObserver : IntersectionObserver;
   quoteObserver : IntersectionObserver;
   navObserver : IntersectionObserver;
+
+  homeObserver : IntersectionObserver;
+  homeSubject : Subject<string> = new Subject();
 
   constructor() { }
 
@@ -77,6 +81,25 @@ export class IntersectionObserverService {
     elements.forEach(element => {
       this.aboutObserver.observe(element.nativeElement);
     })
+  }
+
+  onScrollNav(element : ElementRef){
+    const options = {
+      root: null,
+      threshold: 0
+    }
+
+    this.homeObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry: IntersectionObserverEntry) => {
+        if(!entry.isIntersecting){
+          this.homeSubject.next('add');
+        }
+        else {
+          this.homeSubject.next('remove');
+        }
+      })
+    }, options)
+    this.homeObserver.observe(element.nativeElement);
   }
 
 }

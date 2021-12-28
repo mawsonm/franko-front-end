@@ -47,6 +47,9 @@ export class AppComponent implements OnInit, AfterViewInit{
   shop : boolean = false;
   account : boolean = false;
   logo: boolean = false;
+  addOrRemove: string = '';
+
+  @ViewChild('nav') nav : ElementRef;
 
   constructor(private intersectionObserverService : IntersectionObserverService, private homeService: HomeService){}
 
@@ -70,6 +73,9 @@ export class AppComponent implements OnInit, AfterViewInit{
   }
 
   ngAfterViewInit(){
+    this.intersectionObserverService.homeSubject.subscribe(addOrRemove => {
+      this.addOrRemove = addOrRemove;
+    })
   }
 
   animateNav(){
@@ -79,6 +85,15 @@ export class AppComponent implements OnInit, AfterViewInit{
     setTimeout(() => this.shop = !this.shop, 1800);
     setTimeout(() => this.account = !this.account, 2000);
     setTimeout(() => this.logo = !this.logo, 200);
+  }
+
+  addOrRemoveNav(){
+    if(this.addOrRemove == 'add'){
+      return false;
+    }
+    else{
+      return true;
+    }
   }
 
   transformNav(){
