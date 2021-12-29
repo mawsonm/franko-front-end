@@ -114,4 +114,8 @@ export class AppComponent implements OnInit, AfterViewInit{
       scrolled = false;
   }
 }
+
+onToggleSidenav() {
+
+}
 }

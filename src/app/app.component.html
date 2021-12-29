@@ -7,13 +7,16 @@
     (scroll)="onWindowScroll($event)"
   >
     <!--<span>franko.<i></i></span>-->
+    <button fxHide fxShow.lt-md mat-icon-button (click)="snav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
     <img
       [@logoBar]="logo ? 'ready' : 'init'"
       src="../assets/images/logo1.png"
       alt=""
     />
     <nav>
-      <ul>
+      <ul fxHide fxShow.gt-sm>
         <li [@navBar]="home ? 'ready' : 'init'">
           <a (click)="onClickScroll('home')">Home</a>
         </li>
@@ -37,20 +40,51 @@
       </ul>
     </nav>
   </div>
-  <router-outlet></router-outlet>
-  <div class="footer">
-    <div class="footer-flex">
-      <img src="../assets/images/logo1.png" alt="" />
-    </div>
-    <div class="footer-flex" style="width: 11%">
-      <i class="fab fa-instagram fa-2x" style="color: white"></i>
-      <i class="fab fa-tiktok fa-2x" style="color: white"></i>
-      <i class="fab fa-twitch fa-2x" style="color: white"></i>
-    </div>
-    <div class="footer-flex" style="width: 35%">
-      <p>Privacy Policy</p>
-      <p>Terms & Conditions</p>
-      <p>Shipping & Returns</p>
-    </div>
-  </div>
+  <mat-sidenav-container class="example-sidenav-container">
+    <mat-sidenav #snav [mode]="'over'" [fixedInViewport]="true">
+      <nav class="sidenav-flex">
+        <ul>
+          <li [@navBar]="home ? 'ready' : 'init'">
+            <a (click)="snav.toggle(); onClickScroll('home')">Home</a>
+          </li>
+          <li [@navBar]="about ? 'ready' : 'init'">
+            <a (click)="snav.toggle(); onClickScroll('about')">About</a>
+          </li>
+          <li [@navBar]="gallery ? 'ready' : 'init'">
+            <a (click)="snav.toggle(); onClickScroll('gallery')">Gallery</a>
+          </li>
+          <li [@navBar]="shop ? 'ready' : 'init'">
+            <a (click)="snav.toggle(); onClickScroll('shop')">Shop</a>
+          </li>
+          <li [@navBar]="account ? 'ready' : 'init'">
+            <a href="#account">Account</a>
+          </li>
+          <li>
+            <a routerLink="/cart"
+              ><span
+                ><i class="fa fa-shopping-cart" aria-hidden="true"></i></span
+            ></a>
+          </li>
+        </ul>
+      </nav>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+      <div class="footer">
+        <div class="footer-flex">
+          <img src="../assets/images/logo1.png" alt="" />
+        </div>
+        <div class="footer-flex" style="width: 11%">
+          <i class="fab fa-instagram fa-2x" style="color: white"></i>
+          <i class="fab fa-tiktok fa-2x" style="color: white"></i>
+          <i class="fab fa-twitch fa-2x" style="color: white"></i>
+        </div>
+        <div class="footer-flex" style="width: 35%">
+          <p>Privacy Policy</p>
+          <p>Terms & Conditions</p>
+          <p>Shipping & Returns</p>
+        </div>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </div>

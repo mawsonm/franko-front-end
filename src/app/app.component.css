@@ -1,5 +1,33 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&family=Roboto:ital,wght@1,300&display=swap");
+li > a {
+  cursor: pointer;
+}
+mat-sidenav {
+  width: 90px;
+  background: #272727;
+  overflow-x: hidden;
+}
+mat-sidenav-content {
+  overflow-x: hidden;
+}
 
+.sidenav-flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.sidenav-flex ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 75px;
+}
+.sidenav-flex li {
+  list-style: none;
+  padding: 15px 0px;
+}
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -83,7 +111,7 @@ img {
   height: 50px;
   margin: auto;
 }
-
+/*
 @media (max-width: 850px) {
   .navbar {
     flex-direction: column;
@@ -99,7 +127,7 @@ img {
     margin-bottom: 0px;
   }
 }
-
+*/
 @media (max-width: 1200px) {
   .footer {
     height: 200px;
