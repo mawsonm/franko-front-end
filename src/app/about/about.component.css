@@ -1,0 +1,12 @@
+.content {
+  margin: 10% 5%;
+  height: 100vh;
+}
+.row {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.reverse {
+  flex-direction: row-reverse;
+}

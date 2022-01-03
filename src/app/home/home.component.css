@@ -162,6 +162,9 @@ video {
 /* ABOUT END */
 
 /* GALLERY START */
+a {
+  text-decoration: none;
+}
 
 .grid-wrapper {
   background-color: #007a9c;

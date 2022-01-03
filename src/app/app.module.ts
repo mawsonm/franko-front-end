@@ -19,6 +19,8 @@ import { MatToolbarModule} from '@angular/material/toolbar';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatIconModule } from '@angular/material/icon'
 import player from 'lottie-web';
+import { AboutComponent } from './about/about.component';
+import { GalleryComponent } from './gallery/gallery.component';
 
 const routes : Routes = [
   {path: '', component: HomeComponent},
@@ -30,7 +32,9 @@ export function playerFactory(){
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    AboutComponent,
+    GalleryComponent
   ],
   imports: [
     BrowserModule,
