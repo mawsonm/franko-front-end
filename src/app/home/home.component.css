@@ -63,13 +63,16 @@ video {
 
 /* ABOUT START */
 
+#about {
+  border-bottom: 2px solid #362a1f;
+}
 #about-pic {
   height: 100%;
   width: 100%;
 }
 
 .flex-columns {
-  background-color: #759347;
+  background-color: #54412f;
   overflow-x: hidden;
 }
 .flex-columns .row {
@@ -98,11 +101,8 @@ video {
   flex: 1;
 }
 
-.column .button {
-  background-color: #513d2b;
-}
 .flex-columns .about {
-  background-color: #759347;
+  background-color: #54412f;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -167,14 +167,18 @@ a {
   color: white;
 }
 
+#gallery {
+  border-bottom: 2px solid #72d6c5;
+}
+
 .grid-wrapper {
   background: linear-gradient(
-    #759347,
-    #4c914e,
-    #008d5c,
-    #00886f,
-    #008286,
-    #007a9c
+    #54412f,
+    #62573b,
+    #6a704c,
+    #6d8964,
+    #6aa386,
+    #64bdae
   );
   display: grid;
   width: 100%;
@@ -221,12 +225,7 @@ a {
 }
 
 .button {
-  border-radius: 25px;
-  color: #fff;
-  font-family: "Open Sans", sans-serif;
-  margin-top: 10px;
-  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
-  transition: all 300ms ease;
+  background-color: #54412f;
 }
 
 .button:hover {
@@ -357,9 +356,10 @@ a {
 
 /* BEGIN SHOP */
 .shop {
-  height: 750px;
+  height: 800px;
   width: 100%;
-  background: #007a9c;
+  background: #64bdae;
+  padding: 50px 0 50px 0;
 }
 
 .shop-column {
@@ -370,6 +370,7 @@ a {
 }
 
 .padding-shop {
+  color: #272727;
   padding: 35px 0px 35px 0px;
 }
 
@@ -400,7 +401,7 @@ a {
   color: rgba(0, 0, 0, 0.6);
 }
 .shop-item p {
-  color: rgba(0, 0, 0, 0.19);
+  color: rgba(0, 0, 0, 0.5);
 }
 .top-row-item {
   display: flex;

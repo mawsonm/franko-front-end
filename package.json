@@ -22,12 +22,17 @@
     "@angular/platform-browser-dynamic": "~12.1.0-",
     "@angular/router": "~12.1.0-",
     "@fortawesome/fontawesome-free": "^5.15.4",
+    "@okta/okta-angular": "^5.1.1",
+    "@okta/okta-auth-js": "^6.0.0",
+    "@okta/okta-signin-widget": "^6.0.0",
     "lottie-web": "^5.8.1",
     "movinwords": "^1.0.6",
+    "ng-particles": "^2.40.2",
     "ngx-lottie": "^7.0.4",
     "rxjs": "~6.6.0",
     "save": "^2.4.0",
     "tslib": "^2.2.0",
+    "tsparticles": "^1.40.2",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {

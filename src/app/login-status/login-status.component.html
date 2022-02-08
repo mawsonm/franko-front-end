@@ -1,0 +1,21 @@
+<a *ngIf="userFullName" style="margin-right: 25px"
+  >Welcome back, {{ userFullName }}!</a
+>
+<button
+  *ngIf="!isAuthenticated"
+  routerLink="/login"
+  mat-raised-button
+  color="primary"
+  class="button log-btn"
+>
+  Login
+</button>
+<button
+  *ngIf="isAuthenticated"
+  (click)="logout()"
+  mat-raised-button
+  color="primary"
+  class="button log-btn"
+>
+  Logout
+</button>

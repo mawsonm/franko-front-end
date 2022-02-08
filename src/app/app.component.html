@@ -10,32 +10,34 @@
     <button fxHide fxShow.lt-md mat-icon-button (click)="snav.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
-    <img
-      [@logoBar]="logo ? 'ready' : 'init'"
-      src="../assets/images/logo1.png"
-      alt=""
-    />
+    <a class="nav-hover" routerLink="">
+      <img
+        [@logoBar]="logo ? 'ready' : 'init'"
+        src="../assets/images/logo1.png"
+        alt=""
+      />
+    </a>
     <nav>
       <ul fxHide fxShow.gt-sm>
         <li [@navBar]="home ? 'ready' : 'init'">
-          <a (click)="onClickScroll('home')">Home</a>
+          <a class="nav-hover" (click)="onClickScroll('home')">HOME</a>
         </li>
         <li [@navBar]="about ? 'ready' : 'init'">
-          <a (click)="onClickScroll('about')">About</a>
+          <a class="nav-hover" (click)="onClickScroll('about')">ABOUT</a>
         </li>
         <li [@navBar]="gallery ? 'ready' : 'init'">
-          <a (click)="onClickScroll('gallery')">Gallery</a>
+          <a class="nav-hover" (click)="onClickScroll('gallery')">GALLERY</a>
         </li>
         <li [@navBar]="shop ? 'ready' : 'init'">
-          <a (click)="onClickScroll('shop')">Shop</a>
-        </li>
-        <li [@navBar]="account ? 'ready' : 'init'">
-          <a href="#account">Account</a>
+          <a class="nav-hover" (click)="onClickScroll('shop')">SHOP</a>
         </li>
         <li>
           <a routerLink="/cart"
             ><span><i class="fa fa-shopping-cart" aria-hidden="true"></i></span
           ></a>
+        </li>
+        <li [@navBar]="account ? 'ready' : 'init'">
+          <app-login-status></app-login-status>
         </li>
       </ul>
     </nav>
@@ -60,10 +62,7 @@
             <a href="#account">Account</a>
           </li>
           <li>
-            <a routerLink="/cart"
-              ><span
-                ><i class="fa fa-shopping-cart" aria-hidden="true"></i></span
-            ></a>
+            <app-cart-status></app-cart-status>
           </li>
         </ul>
       </nav>
