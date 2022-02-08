@@ -19,6 +19,31 @@
     </div>
   </div>
 </div>
+<div id="about" #aboutSection class="flex-columns">
+  <div class="row">
+    <div #about class="column from-left">
+      <img
+        id="about-pic"
+        src="../../assets/images/frank_placeholder.jpg"
+        alt=""
+      />
+    </div>
+    <div #about class="column about from-right">
+      <div class="row">
+        <img src="../../assets/images/cooking.png" alt="cook" />
+        <img src="../../assets/images/helmet.png" alt="construction" />
+        <img src="../../assets/images/guitar.png" alt="guitarist" />
+      </div>
+      <h4>chef / construction worker / musician</h4>
+      <h1>hi i'm frank</h1>
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugit atque
+        reiciendis adipisci obcaecati quos aperiam odit dolor nulla eligendi
+        quaerat.
+      </p>
+    </div>
+  </div>
+</div>
 <div id="gallery" #gallerySection class="grid-wrapper">
   <div class="intro-quote">
     <h2 class="special" style="text-shadow: black 1px 0 10px" #topGallery>
@@ -35,7 +60,13 @@
         See the gallery for my all videos. I show you step by step how to cook
         <i>fantasic</i> Italian food!
       </p>
-      <button mat-raised-button color="primary" class="button">Watch</button>
+      <button mat-raised-button color="primary" class="button">
+        <a
+          href="https://www.instagram.com/_frankie_diamond/channel/"
+          target="_blank"
+          >Watch</a
+        >
+      </button>
     </div>
   </div>
   <div class="insta-preview">
@@ -81,63 +112,36 @@
   <div class="shop-column">
     <h1 class="padding-shop">buy some merch!</h1>
     <div class="carousel-grid">
-      <div class="info-color-flex left">
+      <div *ngFor="let product of products" class="info-color-flex">
         <div class="shop-item">
-          <img src="../../assets/images/frank_placeholder.jpg" alt="" />
+          <img src="../../{{ product.imageUrl1 }}" alt="" />
           <div class="top-row-item">
-            <h3 style="padding-left: 10px">Super Depressed Hoodie</h3>
+            <h3 style="padding-left: 10px">{{ product.name }}</h3>
             <div class="colors">
-              <div class="color-circle" style="background-color: purple"></div>
-              <div class="color-circle" style="background-color: orange"></div>
+              <div
+                [ngStyle]="{ 'background-color': color }"
+                *ngFor="let color of product.colors"
+                class="color-circle"
+              ></div>
             </div>
           </div>
-          <p style="padding-left: 10px">$30</p>
-          <p style="padding-left: 10px">Size: S/M/L</p>
+          <p style="padding-left: 10px">
+            {{ product.unitPrice | currency: "USD" }}
+          </p>
+          <p
+            style="padding-left: 10px; margin-bottom: 2rem"
+            *ngIf="product.sizes.length == 0"
+          >
+            <i>Out of Stock</i>
+          </p>
+          <p
+            style="padding-left: 10px; margin-bottom: 2rem"
+            *ngIf="product.sizes.length != 0"
+          >
+            Size(s): <span *ngFor="let size of product.sizes">{{ size }},</span>
+          </p>
         </div>
       </div>
-      <div class="info-color-flex right">
-        <div class="shop-item">
-          <img src="../../assets/images/frank_placeholder.jpg" alt="" />
-          <div class="top-row-item">
-            <h3 style="padding-left: 10px">Super Depressed Hoodie</h3>
-            <div class="colors">
-              <div class="color-circle" style="background-color: purple"></div>
-              <div class="color-circle" style="background-color: orange"></div>
-            </div>
-          </div>
-          <p style="padding-left: 10px">$30</p>
-          <p style="padding-left: 10px">Size: S/M/L</p>
-        </div>
-      </div>
-    </div>
-    <button mat-raised-button color="primary" class="button button-shop">
-      Shop
-    </button>
-  </div>
-</div>
-<div id="about" #aboutSection class="flex-columns">
-  <div class="row">
-    <div #about class="column from-left">
-      <img
-        id="about-pic"
-        src="../../assets/images/frank_placeholder.jpg"
-        alt=""
-      />
-    </div>
-    <div #about class="column about from-right">
-      <div class="row">
-        <img src="../../assets/images/cooking.png" alt="cook" />
-        <img src="../../assets/images/helmet.png" alt="construction" />
-        <img src="../../assets/images/guitar.png" alt="guitarist" />
-      </div>
-      <h4>chef / construction worker / musician</h4>
-      <h1>hi i'm frank</h1>
-      <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugit atque
-        reiciendis adipisci obcaecati quos aperiam odit dolor nulla eligendi
-        quaerat.
-      </p>
-      <button mat-raised-button class="button">Read</button>
     </div>
   </div>
 </div>

@@ -8,6 +8,7 @@ import { AnimationItem } from 'lottie-web';
 import { AnimationOptions } from 'ngx-lottie';
 import { LottieModule } from 'ngx-lottie';
 import { movinWords } from 'movinwords';
+import { ProductShow } from '../common/product';
 
 @Component({
   selector: 'app-home',
@@ -46,6 +47,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   smoothScrollMap = new Map();
 
+  products : Array<ProductShow> = new Array<ProductShow>();
 
 
   @ViewChildren('bottomGallery') bottomGallery : QueryList<ElementRef>;
@@ -59,13 +61,35 @@ export class HomeComponent implements OnInit, AfterViewInit {
   constructor(private homeService: HomeService, private intersectionService : IntersectionObserverService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    /*this.homeService.getInstagramInfo().subscribe(it => {
-      this.instaInfo.bio = it.data.biography;
-      console.log(this.instaInfo.bio);
-      this.instaInfo.pic_url = "../../assets/images/insta_profile.jpg";
-      this.instaInfo.username = "_frankie_diamond";
-    });*/
+    this.getProductDetails();
     setTimeout(() => this.heroTextFade = !this.heroTextFade, 1200);
+  }
+
+  getProductDetails(){
+    this.homeService.getProducts().subscribe(data => {
+      data.forEach(product => {
+        var prod = new ProductShow();
+        prod.id = product.id;
+        prod.name = product.name;
+        prod.unitPrice = product.unitPrice;
+        console.log(product);
+        this.homeService.getProductDetails(product.id).subscribe(details => {
+          details.forEach(item => {
+            prod.colors.push(item.color);
+            if(item.unitsInStock != 0){
+              prod.sizes.push(item.size);
+            }
+            prod.imageUrl1 = item.imageUrl1;
+            if(item.imageUrl2){
+              prod.imageUrl2 = item.imageUrl2;
+            }
+          })
+          prod.colors = prod.colors.filter((v, i, a) => a.indexOf(v) === i);
+          this.products.push(prod);
+        })
+      })
+      console.log(this.products);
+    })
   }
 
   ngAfterViewInit(){

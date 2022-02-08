@@ -24,7 +24,8 @@ import { GalleryComponent } from './gallery/gallery.component';
 
 const routes : Routes = [
   {path: '', component: HomeComponent},
-  {path: 'account', component: AccountComponent}
+  {path: 'account', component: AccountComponent},
+  {path: 'about', component: AboutComponent}
 ]
 export function playerFactory(){
   return import("lottie-web");
