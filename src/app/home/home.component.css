@@ -409,6 +409,11 @@ a {
   width: 350px;
   padding-top: 10px;
 }
+
+.bottom-row-item {
+  display: flex;
+  justify-content: space-between;
+}
 .colors {
   padding-right: 10px;
   display: flex;

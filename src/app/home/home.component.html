@@ -128,18 +128,28 @@
           <p style="padding-left: 10px">
             {{ product.unitPrice | currency: "USD" }}
           </p>
-          <p
-            style="padding-left: 10px; margin-bottom: 2rem"
-            *ngIf="product.sizes.length == 0"
-          >
-            <i>Out of Stock</i>
-          </p>
-          <p
-            style="padding-left: 10px; margin-bottom: 2rem"
-            *ngIf="product.sizes.length != 0"
-          >
-            Size(s): <span *ngFor="let size of product.sizes">{{ size }},</span>
-          </p>
+          <div class="bottom-row-item">
+            <p
+              style="padding-left: 10px; margin-bottom: 2rem"
+              *ngIf="product.sizes.length == 0"
+            >
+              <i>Out of Stock</i>
+            </p>
+            <p
+              style="padding-left: 10px; margin-bottom: 2rem"
+              *ngIf="product.sizes.length != 0"
+            >
+              Size(s):
+              <span *ngFor="let size of product.sizes">{{ size }},</span>
+            </p>
+            <button
+              mat-raised-button
+              class="button"
+              routerLink="product/{{ product.id }}"
+            >
+              See more
+            </button>
+          </div>
         </div>
       </div>
     </div>

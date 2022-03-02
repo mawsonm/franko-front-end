@@ -28,3 +28,21 @@ export class ProductShow {
   imageUrl1 : string;
   imageUrl2 : string;
 }
+
+export interface GetResponseProducts {
+  _embedded: {
+    products: Product[];
+  }
+}
+
+export interface GetResponseProduct {
+  _embedded: {
+    product: Product;
+  }
+}
+
+export interface GetResponseProductDetails {
+  _embedded: {
+    productDetail: ProductDetail[];
+  }
+}

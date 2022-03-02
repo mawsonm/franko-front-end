@@ -32,6 +32,7 @@ import {
 import myAppConfig from './config/my-app-config';
 
 import { OktaAuth } from '@okta/okta-auth-js';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
 
 const oktaConfig = Object.assign(
   {
@@ -51,6 +52,7 @@ const oktaAuth = new OktaAuth(oktaConfig);
 const routes: Routes = [
   { path: 'login/callback', component: OktaCallbackComponent },
   { path: 'login', component: AccountComponent },
+  {path: 'product/:id', component: ProductDetailComponent},
   { path: '', component: HomeComponent },
 ];
 export function playerFactory() {
@@ -64,6 +66,7 @@ export function playerFactory() {
     AboutComponent,
     CartStatusComponent,
     LoginStatusComponent,
+    ProductDetailComponent,
   ],
   imports: [
     BrowserModule,

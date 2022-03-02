@@ -1,4 +1,4 @@
-import { Product, ProductDetail } from './../common/product';
+import { GetResponseProductDetails, GetResponseProducts, Product, ProductDetail } from './../common/product';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
@@ -32,17 +32,5 @@ export class HomeService {
     return this.http.get<GetResponseProductDetails>(`${this.baseUrl}/product-detail/search/findByProductId?product_id=${productId}`).pipe(
       map(response => response._embedded.productDetail)
     );
-  }
-}
-
-interface GetResponseProducts {
-  _embedded: {
-    products: Product[];
-  }
-}
-
-interface GetResponseProductDetails {
-  _embedded: {
-    productDetail: ProductDetail[];
   }
 }
