@@ -413,6 +413,12 @@ a {
 .bottom-row-item {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  width: 350px;
+}
+
+.btn-shop {
+  margin: 0px 20px 30px 0px;
 }
 .colors {
   padding-right: 10px;

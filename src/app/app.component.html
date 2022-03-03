@@ -10,7 +10,7 @@
     <button fxHide fxShow.lt-md mat-icon-button (click)="snav.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
-    <a class="nav-hover" routerLink="">
+    <a class="nav-hover" (click)="onClickScroll('home')" routerLink="">
       <img
         [@logoBar]="logo ? 'ready' : 'init'"
         src="../assets/images/logo1.png"
