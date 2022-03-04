@@ -34,7 +34,6 @@ export class ProductDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
-      console.log(params);
       this.id = +params.get('id')!;
       this.handleProductDetails();
     });
@@ -47,7 +46,6 @@ export class ProductDetailComponent implements OnInit {
 
   getProduct(){
     this.productDetailService.getProductInfoById(this.id).subscribe(data => {
-      console.log(data);
       this.name = data.name;
       this.description = data.description;
       this.price = data.unitPrice;
@@ -56,7 +54,6 @@ export class ProductDetailComponent implements OnInit {
 
   getProductDetails(){
     this.productDetailService.getProductDetailById(this.id).subscribe(data => {
-      console.log(data);
       let counter = 0;
       data.forEach(detailItem => {
         if(this.images.indexOf(detailItem.imageUrl1) == -1){
@@ -70,7 +67,6 @@ export class ProductDetailComponent implements OnInit {
               this.imageMap.set(detailItem.imageUrl1, false);
             }
           }
-          console.log(this.images[0]);
         }
         if(detailItem.imageUrl2){
           if(this.images.indexOf(detailItem.imageUrl2) == -1){

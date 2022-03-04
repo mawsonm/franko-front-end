@@ -40,7 +40,7 @@ mat-sidenav-content {
   height: 90px;
   top: 0 px;
   width: 100%;
-  transition: background 0.5s ease-in;
+  transition: background 0.3s ease-in;
   z-index: 10;
 }
 

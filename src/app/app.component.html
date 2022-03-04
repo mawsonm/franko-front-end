@@ -2,7 +2,7 @@
   <div
     id="navbar"
     #nav
-    [ngClass]="{ top: addOrRemoveNav() }"
+    [ngClass]="{ top: addOrRemoveNav() && !hideNav }"
     class="navbar"
     (scroll)="onWindowScroll($event)"
   >
@@ -20,18 +20,42 @@
     <nav>
       <ul fxHide fxShow.gt-sm>
         <li [@navBar]="home ? 'ready' : 'init'">
-          <a class="nav-hover" (click)="onClickScroll('home')">HOME</a>
+          <a
+            *ngIf="!hideNav"
+            class="nav-hover"
+            (click)="onClickScroll('home')"
+            routerLink=""
+            >HOME</a
+          >
         </li>
         <li [@navBar]="about ? 'ready' : 'init'">
-          <a class="nav-hover" (click)="onClickScroll('about')">ABOUT</a>
+          <a
+            *ngIf="!hideNav"
+            class="nav-hover"
+            (click)="onClickScroll('about')"
+            routerLink=""
+            >ABOUT</a
+          >
         </li>
         <li [@navBar]="gallery ? 'ready' : 'init'">
-          <a class="nav-hover" (click)="onClickScroll('gallery')">GALLERY</a>
+          <a
+            *ngIf="!hideNav"
+            class="nav-hover"
+            (click)="onClickScroll('gallery')"
+            routerLink=""
+            >GALLERY</a
+          >
         </li>
         <li [@navBar]="shop ? 'ready' : 'init'">
-          <a class="nav-hover" (click)="onClickScroll('shop')">SHOP</a>
+          <a
+            *ngIf="!hideNav"
+            class="nav-hover"
+            (click)="onClickScroll('shop')"
+            routerLink=""
+            >SHOP</a
+          >
         </li>
-        <li>
+        <li [@navBar]="cart ? 'ready' : 'init'">
           <a routerLink="/cart"
             ><span><i class="fa fa-shopping-cart" aria-hidden="true"></i></span
           ></a>

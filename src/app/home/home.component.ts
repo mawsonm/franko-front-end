@@ -16,14 +16,17 @@ import {
   ViewChild,
   QueryList,
   Input,
+  OnDestroy,
 } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, RoutesRecognized } from '@angular/router';
 import { HomeService } from '../services/home.service';
 import { AnimationItem } from 'lottie-web';
 import { AnimationOptions } from 'ngx-lottie';
 import { LottieModule } from 'ngx-lottie';
 import { movinWords } from 'movinwords';
 import { ProductShow } from '../common/product';
+import { filter, pairwise } from 'rxjs/operators';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -47,7 +50,7 @@ import { ProductShow } from '../common/product';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
-export class HomeComponent implements OnInit, AfterViewInit {
+export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   // hero stuff
 
   heroUrl: string = '../../assets/videos/slow-steak.mp4';
@@ -65,6 +68,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   products: Array<ProductShow> = new Array<ProductShow>();
 
+  subscription: Subscription;
+
   @ViewChildren('bottomGallery') bottomGallery: QueryList<ElementRef>;
   @ViewChildren('about') about: QueryList<ElementRef>;
   @ViewChildren('topGallery') topGallery: QueryList<ElementRef>;
@@ -76,8 +81,12 @@ export class HomeComponent implements OnInit, AfterViewInit {
   constructor(
     private homeService: HomeService,
     private intersectionService: IntersectionObserverService,
-    private route: ActivatedRoute
+    private router: Router
   ) {}
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
 
   ngOnInit(): void {
     this.getProductDetails();
@@ -91,7 +100,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
         prod.id = product.id;
         prod.name = product.name;
         prod.unitPrice = product.unitPrice;
-        console.log(product);
         this.homeService.getProductDetails(product.id).subscribe((details) => {
           details.forEach((item) => {
             prod.colors.push(item.color);
@@ -107,7 +115,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
           this.products.push(prod);
         });
       });
-      console.log(this.products);
     });
   }
 
@@ -122,8 +129,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.smoothScrollMap.set('about', this.aboutSection);
     this.smoothScrollMap.set('gallery', this.gallerySection);
     this.smoothScrollMap.set('shop', this.shopSection);
-    this.homeService.navSubject.subscribe((element) => {
+    this.subscription = this.homeService.navSubject.subscribe((element) => {
+      console.log('element', element);
       let scrollTo = this.smoothScrollMap.get(element);
+      console.log('scrollTo', scrollTo);
       scrollTo.nativeElement.scrollIntoView({
         behavior: 'smooth',
         block: 'start',

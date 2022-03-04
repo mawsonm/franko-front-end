@@ -26,7 +26,6 @@ export class LoginStatusComponent implements OnInit {
 
   ngOnInit(): void {
     this.oktaAuthService.authState$.subscribe((result) => {
-      console.log(result.isAuthenticated);
       this.isAuthenticated = result.isAuthenticated;
       this.getUserDetails();
     });
