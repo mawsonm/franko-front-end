@@ -129,13 +129,13 @@ img {
   }
 }
 */
-@media (max-width: 1200px) {
+/* @media (max-width: 1200px) {
   .footer {
-    height: 200px;
+    height: 90px;
   }
 
   .footer-flex {
     height: 150px;
     flex-direction: column;
   }
-}
+} */
