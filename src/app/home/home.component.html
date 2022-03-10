@@ -111,7 +111,58 @@
 <div class="shop" #shopSection id="shop">
   <div class="shop-column">
     <h1 class="padding-shop">buy some merch!</h1>
-    <div class="carousel-grid">
+    <div *ngIf="innerWidth < 821" class="carousel-grid">
+      <swiper [config]="config">
+        <ng-template
+          *ngFor="let product of products"
+          class="info-color-flex"
+          swiperSlide
+        >
+          <div class="shop-item">
+            <img src="../../{{ product.imageUrl1 }}" alt="" />
+            <div class="top-row-item">
+              <h3 style="padding-left: 10px">{{ product.name }}</h3>
+              <div class="colors">
+                <div
+                  [ngStyle]="{ 'background-color': color }"
+                  *ngFor="let color of product.colors"
+                  class="color-circle"
+                ></div>
+              </div>
+            </div>
+            <p style="padding-left: 10px">
+              {{ product.unitPrice | currency: "USD" }}
+            </p>
+            <div class="bottom-row-item">
+              <p
+                style="padding-left: 10px; margin-bottom: 2rem"
+                *ngIf="product.sizes.length == 0"
+              >
+                <i>Out of Stock</i>
+              </p>
+              <p
+                style="padding-left: 10px; margin-bottom: 2rem"
+                *ngIf="product.sizes.length != 0"
+              >
+                Size(s):
+                <span *ngFor="let size of product.sizes">{{ size }},</span>
+              </p>
+              <button
+                mat-raised-button
+                class="button btn-shop"
+                routerLink="product/{{ product.id }}"
+              >
+                <a>See More</a>
+              </button>
+            </div>
+          </div>
+        </ng-template>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </swiper>
+    </div>
+    <div *ngIf="innerWidth > 820" class="carousel-grid">
       <div *ngFor="let product of products" class="info-color-flex">
         <div class="shop-item">
           <img src="../../{{ product.imageUrl1 }}" alt="" />

@@ -17,6 +17,7 @@ import {
   QueryList,
   Input,
   OnDestroy,
+  HostListener,
 } from '@angular/core';
 import { ActivatedRoute, Router, RoutesRecognized } from '@angular/router';
 import { HomeService } from '../services/home.service';
@@ -27,6 +28,11 @@ import { movinWords } from 'movinwords';
 import { ProductShow } from '../common/product';
 import { filter, pairwise } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
+import { SwiperOptions } from 'swiper';
+import { SwiperComponent } from 'swiper/angular';
+import SwiperCore, { Navigation, Pagination } from 'swiper';
+
+SwiperCore.use([Navigation, Pagination]);
 
 @Component({
   selector: 'app-home',
@@ -66,9 +72,26 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   smoothScrollMap = new Map();
 
+  config: SwiperOptions = {
+    slidesPerView: 1,
+    spaceBetween: 50,
+    navigation: true,
+    centerInsufficientSlides: true,
+    centeredSlides: true,
+    pagination: { clickable: true },
+    scrollbar: { draggable: true },
+  };
+
   products: Array<ProductShow> = new Array<ProductShow>();
 
   subscription: Subscription;
+
+  innerWidth: any;
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.innerWidth = window.innerWidth;
+  }
 
   @ViewChildren('bottomGallery') bottomGallery: QueryList<ElementRef>;
   @ViewChildren('about') about: QueryList<ElementRef>;
@@ -89,6 +112,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.innerWidth = window.innerWidth;
     this.getProductDetails();
     setTimeout(() => (this.heroTextFade = !this.heroTextFade), 1200);
   }

@@ -22,6 +22,7 @@ import { MatIconModule } from '@angular/material/icon';
 import player from 'lottie-web';
 import { AboutComponent } from './about/about.component';
 import { CartStatusComponent } from './cart-status/cart-status.component';
+import { SwiperModule } from 'swiper/angular';
 
 import {
   OKTA_CONFIG,
@@ -52,7 +53,7 @@ const oktaAuth = new OktaAuth(oktaConfig);
 const routes: Routes = [
   { path: 'login/callback', component: OktaCallbackComponent },
   { path: 'login', component: AccountComponent },
-  {path: 'product/:id', component: ProductDetailComponent},
+  { path: 'product/:id', component: ProductDetailComponent },
   { path: '', component: HomeComponent },
 ];
 export function playerFactory() {
@@ -87,6 +88,7 @@ export function playerFactory() {
       anchorScrolling: 'enabled',
     }),
     LottieModule.forRoot({ player: playerFactory }),
+    SwiperModule,
   ],
   providers: [{ provide: OKTA_CONFIG, useValue: { oktaAuth } }],
   bootstrap: [AppComponent],
