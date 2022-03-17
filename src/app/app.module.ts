@@ -34,6 +34,7 @@ import myAppConfig from './config/my-app-config';
 
 import { OktaAuth } from '@okta/okta-auth-js';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { CartComponent } from './cart/cart.component';
 
 const oktaConfig = Object.assign(
   {
@@ -53,6 +54,7 @@ const oktaAuth = new OktaAuth(oktaConfig);
 const routes: Routes = [
   { path: 'login/callback', component: OktaCallbackComponent },
   { path: 'login', component: AccountComponent },
+  { path: 'cart', component: CartComponent },
   { path: 'product/:id', component: ProductDetailComponent },
   { path: '', component: HomeComponent },
 ];

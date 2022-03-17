@@ -59,7 +59,7 @@ SwiperCore.use([Navigation, Pagination]);
 export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   // hero stuff
 
-  heroUrl: string = '../../assets/videos/slow-steak.mp4';
+  heroUrl: string = '../../assets/videos/slow-steak-compressed.mp4';
   muted: boolean = true;
   heroTextFade: boolean = false;
 

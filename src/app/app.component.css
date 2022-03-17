@@ -3,7 +3,7 @@ li > a {
   cursor: pointer;
 }
 mat-sidenav {
-  width: 90px;
+  width: 100px;
   background: #272727;
   overflow-x: hidden;
 }

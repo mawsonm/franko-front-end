@@ -71,22 +71,33 @@
       <nav class="sidenav-flex">
         <ul>
           <li [@navBar]="home ? 'ready' : 'init'">
-            <a (click)="snav.toggle(); onClickScroll('home')">Home</a>
+            <a (click)="snav.toggle(); onClickScroll('home')" routerLink=""
+              >HOME</a
+            >
           </li>
-          <li [@navBar]="about ? 'ready' : 'init'">
-            <a (click)="snav.toggle(); onClickScroll('about')">About</a>
+          <li *ngIf="!hideNav" [@navBar]="about ? 'ready' : 'init'">
+            <a (click)="snav.toggle(); onClickScroll('about')" routerLink=""
+              >ABOUT</a
+            >
           </li>
-          <li [@navBar]="gallery ? 'ready' : 'init'">
-            <a (click)="snav.toggle(); onClickScroll('gallery')">Gallery</a>
+          <li *ngIf="!hideNav" [@navBar]="gallery ? 'ready' : 'init'">
+            <a (click)="snav.toggle(); onClickScroll('gallery')" routerLink=""
+              >GALLERY</a
+            >
           </li>
-          <li [@navBar]="shop ? 'ready' : 'init'">
-            <a (click)="snav.toggle(); onClickScroll('shop')">Shop</a>
+          <li *ngIf="!hideNav" [@navBar]="shop ? 'ready' : 'init'">
+            <a (click)="snav.toggle(); onClickScroll('shop')" routerLink=""
+              >SHOP</a
+            >
           </li>
           <li [@navBar]="account ? 'ready' : 'init'">
-            <a href="#account">Account</a>
+            <app-login-status></app-login-status>
           </li>
-          <li>
-            <app-cart-status></app-cart-status>
+          <li [@navBar]="cart ? 'ready' : 'init'">
+            <a (click)="snav.toggle()" routerLink="/cart"
+              ><span
+                ><i class="fa fa-shopping-cart" aria-hidden="true"></i></span
+            ></a>
           </li>
         </ul>
       </nav>

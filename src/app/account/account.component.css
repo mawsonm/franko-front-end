@@ -1,3 +1,20 @@
 .wrap {
-  min-height: calc(100vh - 190px);
+  display: grid;
+  place-items: center;
+}
+@media (max-width: 767px) {
+  .wrap {
+    height: calc(100vh - 76px);
+  }
+}
+
+@media (max-height: 800px) {
+  .wrap {
+    min-height: 800px;
+  }
+}
+@media (min-width: 768px) {
+  .wrap {
+    height: calc(100vh - 90px);
+  }
 }
