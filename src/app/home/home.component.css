@@ -449,7 +449,7 @@ a {
 
 @media (max-width: 1310px) {
   .user-info {
-    padding-right: 38px;
+    padding-right: 0px;
   }
   .grid-wrapper {
     padding-top: 50px;

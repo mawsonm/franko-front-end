@@ -15,7 +15,7 @@ import { map } from 'rxjs/operators';
 export class HomeService {
   navSubject = new Subject();
 
-  baseUrl: string = 'http://localhost:8080/api';
+  baseUrl: string = 'http://frankie-diamond.us-east-2.elasticbeanstalk.com/api';
 
   constructor(private http: HttpClient) {}
 
