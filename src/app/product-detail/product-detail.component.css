@@ -286,7 +286,7 @@ span {
   }
 }
 
-@media (max-width: 414px) {
+@media (max-width: 415px) {
   .content {
     height: 87vh;
     grid-template-rows: 60px 20px repeat(5, 60px);
@@ -324,7 +324,7 @@ span {
   }
 }
 
-@media (max-width: 393px) {
+@media (max-width: 394px) {
   .content {
     height: 735px;
   }
